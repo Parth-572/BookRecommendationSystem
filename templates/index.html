@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendation System</title>
+    <style>
+        body {
+            background-color: #abccec;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #28a745;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1em;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #343a40;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            overflow: hidden;
+            text-align: center;
+        }
+        .card img {
+            width: 70%;
+            height: auto;
+        }
+        .card-body {
+            padding: 10px;
+        }
+        .card-title {
+            font-size: 1.1em;
+            color: #343a40;
+        }
+        .card-text {
+            color: #6c757d;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .col {
+            flex: 1 1 21%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">BookRecommender&#128218;</div>
+        <div>
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/recommend">Recommendation</a>
+            <a class="nav-link" href="#">Favourite</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="text-center">Top 50 Books</h1>
+        <div class="row">
+            {% for i in range(book_name|length) %}
+            <div class="col">
+                <div class="card">
+                    <img src="{{image[i]}}" alt="Book cover">
+                    <div class="card-body">
+                      <h5 class="card-title">{{book_name[i]}}</h5>
+                      <p class="card-text"><strong>Author:</strong> {{Author[i]}}</p>
+                      <p class="card-text"><strong>Votes:</strong> {{votes[i]}}</p>
+                      <p class="card-text"><strong>Rating:</strong> {{rating[i]}}</p>
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
